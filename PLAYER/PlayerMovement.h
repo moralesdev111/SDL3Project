@@ -4,13 +4,8 @@
 class PlayerMovement
 {
 public:
-    void Move(struct SDL_FRect& inPlayerPosition);
+    void PlayerMove(struct SDL_FRect& inPlayerPosition, float deltaTime);
 private:
-    float movementSpeed;
-
-
-
-
-
+    float movementSpeed = 300.f;
 };
 #endif //SDL3PROJECT_PLAYERMOVEMENT_H

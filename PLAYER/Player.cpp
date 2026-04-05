@@ -22,10 +22,10 @@ Player::~Player()
 
 }
 
-void Player::UpdatePlayer()
+void Player::UpdatePlayer(float deltaTime)
 {
     DrawPlayerTexture();
-    playerMovement->Move(*playerStartingPosition);
+    playerMovement->PlayerMove(*playerStartingPosition, deltaTime);
 }
 
 void SDL_TextureDeleter::operator()(SDL_Texture* texture) const

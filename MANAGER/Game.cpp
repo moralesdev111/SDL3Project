@@ -24,20 +24,24 @@ Game::~Game()
 void Game::RunGame()
 {
     Uint64 fps = 0;
-    Uint64 lastTime = 0;
+    Uint64 lastTime = SDL_GetTicks();
+    Uint64 lastSecondTime = lastTime;
     while (isRunning)
     {
         Uint64 currentTick = SDL_GetTicks();
+        deltaTime = (currentTick - lastTime) / 1000.0f;
+        lastTime = currentTick;
+
         UpdateGame();
-        SDL_Delay(16);
         ++fps;
-        Uint64 deltaTime = SDL_GetTicks() - currentTick;
-        if (currentTick > lastTime + 1000)
+
+        if (currentTick > lastSecondTime + 1000)
         {
-            //SDL_LogError(SDL_LOG_CATEGORY_CUSTOM,"FPS: %lu", fps);
-            lastTime = currentTick;
+            SDL_LogError(SDL_LOG_CATEGORY_CUSTOM,"FPS: %lu", fps);
             fps = 0;
+            lastSecondTime = currentTick;
         }
+        SDL_Delay(16);
     }
 }
 
@@ -54,6 +58,6 @@ void Game::UpdateGame()
 
     SDL_SetRenderDrawColor(rendererClass->GetRenderer(), 175, 100,0, 255);
     SDL_RenderClear(rendererClass->GetRenderer());
-    playerClass->UpdatePlayer();
+    playerClass->UpdatePlayer(deltaTime);
     SDL_RenderPresent(rendererClass->GetRenderer());
 }

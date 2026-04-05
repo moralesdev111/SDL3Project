@@ -21,7 +21,7 @@ public:
     ~Player();
     void DrawPlayerTexture() const;
     SDL_FRect* GetPlayerStartingPosition() const {return playerStartingPosition.get();}
-    void UpdatePlayer();
+    void UpdatePlayer(float deltaTime);
 
 private:
     std::unique_ptr<SDL_Texture, SDL_TextureDeleter> playerTexture;

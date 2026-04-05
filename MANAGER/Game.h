@@ -21,5 +21,6 @@ private:
     std::unique_ptr<class Renderer> rendererClass;
     std::unique_ptr<class Player> playerClass;
     bool isRunning = false;
+    float deltaTime = 0.f;
 };
 #endif //SDL3_GAME_H
