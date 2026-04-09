@@ -2,9 +2,9 @@
 #include <SDL3/SDL_keyboard.h>
 #include <SDL3/SDL_log.h>
 
-void PlayerMovement::PlayerMove(struct SDL_FRect& inPlayerPosition, float deltaTime)
+void PlayerMovement::PlayerMove(struct SDL_FRect& inPlayerPosition, float deltaTime) const
 {
-const bool* keystate = SDL_GetKeyboardState(NULL);
+const bool* keystate = SDL_GetKeyboardState(nullptr);
 
     if (keystate[SDL_SCANCODE_W])
     {

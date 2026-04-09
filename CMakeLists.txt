@@ -16,7 +16,11 @@ add_executable(SDL3Project main.cpp
         PLAYER/Player.cpp
         PLAYER/Player.h
         PLAYER/PlayerMovement.cpp
-        PLAYER/PlayerMovement.h)
+        PLAYER/PlayerMovement.h
+        UI/Camera.cpp
+        UI/Camera.h
+        WORLDOBJECT/Rock.cpp
+        WORLDOBJECT/Rock.h)
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/ASSETS
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

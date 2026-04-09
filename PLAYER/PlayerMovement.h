@@ -4,7 +4,7 @@
 class PlayerMovement
 {
 public:
-    void PlayerMove(struct SDL_FRect& inPlayerPosition, float deltaTime);
+    void PlayerMove(struct SDL_FRect& inPlayerPosition, float deltaTime) const;
 private:
     float movementSpeed = 300.f;
 };

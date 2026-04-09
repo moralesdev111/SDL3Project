@@ -6,4 +6,9 @@ int main(int argc, char* argv[])
     game.RunGame();
     return 0;
 }
-//player movement class
+/*
+rock class
+draw rock
+move camera while player centered
+ */
+

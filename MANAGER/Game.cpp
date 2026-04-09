@@ -3,7 +3,8 @@
 #include "UI/Renderer.h"
 #include "PLAYER/Player.h"
 #include "SDL3/SDL.h"
-
+#include "UI/Camera.h"
+#include "WORLDOBJECT/Rock.h"
 
 Game::Game()
 {
@@ -13,6 +14,8 @@ Game::Game()
     rendererClass = std::make_unique<Renderer>();
     rendererClass->CreateRenderer(*windowClass->GetWindow(), nullptr);
     playerClass = std::make_unique<Player>(rendererClass.get());
+    rockClass = std::make_unique<Rock>();
+    cameraClass = std::make_unique<Camera>(Vector2{0,0},1280,960);
     isRunning = true;
 }
 

@@ -24,8 +24,8 @@ Player::~Player()
 
 void Player::UpdatePlayer(float deltaTime)
 {
-    DrawPlayerTexture();
     playerMovement->PlayerMove(*playerStartingPosition, deltaTime);
+    DrawPlayerTexture();
 }
 
 void SDL_TextureDeleter::operator()(SDL_Texture* texture) const
@@ -39,5 +39,8 @@ void SDL_TextureDeleter::operator()(SDL_Texture* texture) const
 void Player::DrawPlayerTexture() const
 {
     if (!playerTexture) return;
+
+    /*SDL_FRect temporaryRender = *playerStartingPosition;
+    temporaryRender.x -= */
     SDL_RenderTexture(rendererClass->GetRenderer(), playerTexture.get(), nullptr, playerStartingPosition.get());
 }

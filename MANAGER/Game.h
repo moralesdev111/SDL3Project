@@ -20,6 +20,8 @@ private:
     std::unique_ptr<class Window> windowClass;
     std::unique_ptr<class Renderer> rendererClass;
     std::unique_ptr<class Player> playerClass;
+    std::unique_ptr<class Rock> rockClass;
+    std::unique_ptr<class Camera> cameraClass;
     bool isRunning = false;
     float deltaTime = 0.f;
 };
